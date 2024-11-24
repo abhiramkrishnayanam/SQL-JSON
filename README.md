@@ -49,3 +49,17 @@ JSON with Nested Objects and Arrays:
 * Interoperability: Works with almost all programming languages.
 * Flexible Schema: Suitable for evolving data structures.
 * Compact: Minimal syntax reduces payload size in data transmission.
+
+### MySQL provides functions like JSON_EXTRACT, ->, and ->> to retrieve JSON values.
+```-- Extract a JSON value
+SELECT JSON_EXTRACT(json_column, '$.key') AS value
+FROM table_name;
+
+-- Shortcut using -> (returns JSON)
+SELECT json_column->'$.key' AS value
+FROM table_name;
+
+-- Shortcut using ->> (returns plain text)
+SELECT json_column->>'$.key' AS value
+FROM table_name;
+```
